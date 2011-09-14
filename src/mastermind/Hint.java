@@ -1,9 +1,13 @@
 package mastermind;
 
 public class Hint {
-	public ColorCombination colorCombination;
+	public Guess exists_of;
 
-	public void calculateHint() {
-		
+	public Hint() {
+		throw new UnsupportedOperationException();
+	}
+
+	private void calculateHint() {
+		throw new UnsupportedOperationException();
 	}
 }

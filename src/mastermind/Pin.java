@@ -1,9 +1,10 @@
 package mastermind;
 
 public class Pin {
-	public ColorCombination colorCombination;
+	private char color;
+	public ColorCombination has_multiple;
 
-	public Pin() {
-		
+	public Pin(char color) {
+		throw new UnsupportedOperationException();
 	}
 }
