@@ -4,12 +4,12 @@ public class Game {
 	public Player player;
 	public Board board;
 
-	public static void main(final String[] args) {
+	public Game() {
 		
 	}
 	
-	public Game() {
-		
+	public static void main( String[] args) {
+		System.out.println("Welkom");
 	}
 
 	public void setUpBoard() {

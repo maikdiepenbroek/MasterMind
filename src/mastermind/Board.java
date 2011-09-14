@@ -17,4 +17,20 @@ public class Board {
 	public void checkColorCombination(ArrayList<ColorCombination> aCc) {
 		
 	}
+
+	public void setGuessedCombination(ArrayList<ColorCombination> guessedCombination) {
+		this.guessedCombination = guessedCombination;
+	}
+
+	public ArrayList<ColorCombination> getGuessedCombination() {
+		return guessedCombination;
+	}
+
+	public void setHintList(ArrayList<Hint> hintList) {
+		this.hintList = hintList;
+	}
+
+	public ArrayList<Hint> getHintList() {
+		return hintList;
+	}
 }
