@@ -8,5 +8,6 @@ public class Guess {
 	public Guess( String correctCombination, String guessedCombination ) {
 		colorCombination = new ColorCombination(guessedCombination);
 		hint = new Hint(correctCombination, guessedCombination);
+		hint.calculateHint();
 	}
 }

@@ -17,7 +17,7 @@ public class Hint {
 		checkForUnknownPins();
 	}
 	
-	public String getHint() {
+	public String returnHintAsString() {
 		return hint.toString();
 	}
 	

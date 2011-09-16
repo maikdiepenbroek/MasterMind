@@ -15,7 +15,7 @@ public class hintTests {
 		Hint hint = new Hint(correct, guess);
 		hint.calculateHint();
 		
-		assertEquals("O---", hint.getHint());
+		assertEquals("O---", hint.returnHintAsString());
 	}
 	
 	@Test
@@ -27,7 +27,7 @@ public class hintTests {
 		Hint hint = new Hint(correct, guess);
 		hint.calculateHint();
 		
-		assertEquals("OX--", hint.getHint());
+		assertEquals("OX--", hint.returnHintAsString());
 	}
 	
 	@Test
@@ -39,7 +39,7 @@ public class hintTests {
 		Hint hint = new Hint(correct, guess);
 		hint.calculateHint();
 		
-		assertEquals("OOOO", hint.getHint());
+		assertEquals("OOOO", hint.returnHintAsString());
 	}
 	
 	@Test
@@ -51,7 +51,7 @@ public class hintTests {
 		Hint hint = new Hint(correct, guess);
 		hint.calculateHint();
 		
-		assertEquals("XXXX", hint.getHint());
+		assertEquals("XXXX", hint.returnHintAsString());
 	}
 	
 	@Test
@@ -63,6 +63,6 @@ public class hintTests {
 		Hint hint = new Hint(correct, guess);
 		hint.calculateHint();
 		
-		assertEquals("----", hint.getHint());
+		assertEquals("----", hint.returnHintAsString());
 	}
 }
