@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import mastermind.Pin;
 
 public class ColorCombination {
-	public ArrayList<Pin> combination;
+	public ArrayList<Pin> combination = new ArrayList<Pin>();
 
 	public ColorCombination(String guessedCombination) {
 		for( int i = 0; i < guessedCombination.length(); i++ ) {
