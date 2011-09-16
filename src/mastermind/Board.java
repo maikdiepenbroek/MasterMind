@@ -7,7 +7,6 @@ import mastermind.ColorCombination;
 public class Board {
 	private int numberOfPins;
 	private int numberOfAttempts;
-	private ColorCombination rightCombination;
 	public ArrayList<Guess> attempts = new ArrayList<Guess>();
 	public ColorCombination correctCombination;
 
@@ -17,19 +16,20 @@ public class Board {
 	}
 
 	public void generateNewCombination() {
-		throw new UnsupportedOperationException();
+		correctCombination = new ColorCombination("RGBB");
 	}
 
 	public void checkColorCombination(ColorCombination colorCombination) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void createNewGuess(String guess) {
-		Guess attempt = new Guess(guess);
+	public void createNewGuess(String guessedCombination) {
+		Guess attempt = new Guess(correctCombination.returnColorCombinationAsString(),
+								  guessedCombination);
 		attempts.add(attempt);
 	}
 	
 	public void setRightColorCombination(ColorCombination newColorCombination) {
-		rightCombination = newColorCombination;
+		correctCombination = newColorCombination;
 	}
 }

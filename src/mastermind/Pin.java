@@ -6,4 +6,8 @@ public class Pin {
 	public Pin(char color) {
 		this.color = color;
 	}
+	
+	public char getColor() {
+		return this.color;
+	}
 }
