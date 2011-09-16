@@ -8,12 +8,12 @@ public class Board {
 	private int numberOfPins;
 	private int numberOfAttempts;
 	private ColorCombination rightCombination;
-	public Game game;
 	public ArrayList<Guess> attempts = new ArrayList<Guess>();
 	public ColorCombination correctCombination;
 
 	public Board(int numberOfPins, int numerOfAttempts) {
-		throw new UnsupportedOperationException();
+		this.numberOfPins 	  = numberOfPins;
+		this.numberOfAttempts = numberOfAttempts;
 	}
 
 	public void generateNewCombination() {
