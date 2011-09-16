@@ -8,9 +8,9 @@ public class Board {
 	private int numberOfPins;
 	private int numberOfAttempts;
 	private ColorCombination rightCombination;
-	public Game is_played_on;
-	public ArrayList<Guess> attempt = new ArrayList<Guess>();
-	public ArrayList<ColorCombination> correct_combination = new ArrayList<ColorCombination>();
+	public Game game;
+	public ArrayList<Guess> attempts = new ArrayList<Guess>();
+	public ColorCombination correctCombination;
 
 	public Board(int numberOfPins, int numerOfAttempts) {
 		throw new UnsupportedOperationException();
@@ -20,11 +20,16 @@ public class Board {
 		throw new UnsupportedOperationException();
 	}
 
-	public void checkColorCombination(ColorCombination cc) {
+	public void checkColorCombination(ColorCombination colorCombination) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void createNewGuess(Guess guess) {
-		throw new UnsupportedOperationException();
+	public void createNewGuess(String guess) {
+		Guess attempt = new Guess(guess);
+		attempts.add(attempt);
+	}
+	
+	public void setRightColorCombination(ColorCombination newColorCombination) {
+		rightCombination = newColorCombination;
 	}
 }

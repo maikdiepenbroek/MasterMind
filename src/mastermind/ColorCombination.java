@@ -4,11 +4,9 @@ import java.util.ArrayList;
 import mastermind.Pin;
 
 public class ColorCombination {
-	public Board correct_combination;
-	public ArrayList<Pin> pin = new ArrayList<Pin>();
-	public Guess exists_of;
+	public ArrayList<Pin> combination = new ArrayList<Pin>();
 
-	public ColorCombination() {
+	public ColorCombination(String guessedCombination) {
 		throw new UnsupportedOperationException();
 	}
 

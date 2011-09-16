@@ -1,8 +1,8 @@
 package mastermind;
 
 public class Guess {
-	public ColorCombination exists_of;
-	public Board attempt;
+	public ColorCombination colorCombination;
+	public Hint hint;
 
 	public Guess(String guess) {
 		throw new UnsupportedOperationException();

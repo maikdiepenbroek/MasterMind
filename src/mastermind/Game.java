@@ -1,11 +1,10 @@
 package mastermind;
 
-import java.util.ArrayList;
 import mastermind.Board;
 
 public class Game {
-	public ArrayList<Board> is_played_on = new ArrayList<Board>();
-
+	private Board board;
+	
 	public static void main( final String[] args ) {
 		
 	}
@@ -15,7 +14,7 @@ public class Game {
 	}
 
 	public void setUpBoard() {
-		throw new UnsupportedOperationException();
+		board = new Board(4,8);
 	}
 
 	public void endGame() {
