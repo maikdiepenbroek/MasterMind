@@ -3,14 +3,15 @@ package mastermind;
 import mastermind.Board;
 
 public class Game {
+	private static Game game;
 	private Board board;
 	
 	public static void main( final String[] args ) {
-		
+		game = new Game();
 	}
 	
 	public Game() {
-		throw new UnsupportedOperationException();
+		setUpBoard();
 	}
 
 	public void setUpBoard() {

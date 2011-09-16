@@ -13,6 +13,7 @@ public class Board {
 	public Board(int numberOfPins, int numerOfAttempts) {
 		this.numberOfPins 	  = numberOfPins;
 		this.numberOfAttempts = numberOfAttempts;
+		System.out.println("Board has been set up.");
 	}
 
 	public void generateNewCombination() {
