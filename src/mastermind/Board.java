@@ -7,10 +7,15 @@ import java.util.ArrayList;
 import mastermind.Guess;
 import mastermind.ColorCombination;
 
+/*
+ * Check for number of entered colors
+ * make input uppercase
+ * check for invalid colors
+ */
+
 public class Board {
 	private int numberOfPins, numberOfAttempts, attemptsMade = 0;
-	private boolean gameInProgress = true;
-		
+			
 	public ArrayList<Guess> attempts = new ArrayList<Guess>();
 	public ColorCombination correctCombination;
 
@@ -19,29 +24,13 @@ public class Board {
 		this.numberOfAttempts = numberOfAttempts;
 		
 		System.out.println("Board has been set up.");
-		
-		generateNewCombination();
-		
-		while(gameInProgress && attemptsMade < this.numberOfAttempts) {
-			createNewGuess(askForNewCombination());
-			Guess currentAttempt = attempts.get(attemptsMade);
-			System.out.println(currentAttempt.hint.returnHintAsString());
-			
-			if(currentAttempt.hint.returnHintAsString().equals("OOOO")) {
-				System.out.println("CORRRRECT");
-				gameInProgress = false;
-			}
-			
-			attemptsMade++;
-		}
-		System.out.println("Game ended");
 	}
 	
 	public String askForNewCombination() {
 		System.out.println("Enter a new combination: ");
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String givenColorCombination = null;
-		
+
 		try {
 			givenColorCombination = br.readLine();
 		}
@@ -77,4 +66,25 @@ public class Board {
 	public void setRightColorCombination(ColorCombination newColorCombination) {
 		correctCombination = newColorCombination;
 	}
+		
+	public int getNumberOfAttempts() {
+		return this.numberOfAttempts;
+	}
+	
+	public int getAttemptsMade() {
+		return this.attemptsMade;
+	}
+
+	public void increaseNumberOfAttemptsMade(){
+		this.attemptsMade++;
+	}
+
+	public ArrayList<Guess> getAttempts() {
+		return attempts;
+	}
+
+	public void setAttempts(ArrayList<Guess> attempts) {
+		this.attempts = attempts;
+	}
+		
 }

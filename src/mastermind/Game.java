@@ -5,6 +5,7 @@ import mastermind.Board;
 public class Game {
 	private static Game game;
 	private Board board;
+	private boolean gameInProgress = true;
 	
 	public static void main( final String[] args ) {
 		game = new Game();
@@ -12,6 +13,7 @@ public class Game {
 	
 	public Game() {
 		setUpBoard();
+		gameLoop();
 	}
 
 	public void setUpBoard() {
@@ -19,7 +21,7 @@ public class Game {
 	}
 
 	public void endGame() {
-		throw new UnsupportedOperationException();
+		gameInProgress = false;
 	}
 
 	public void askStartNewGame() {
@@ -27,10 +29,27 @@ public class Game {
 	}
 
 	public void showGameEnded() {
-		throw new UnsupportedOperationException();
+		System.out.println("Game ended");
 	}
+	
+	
+	private void gameLoop() {
+		board.generateNewCombination();
 
-	public void enterGuessOnBoard(String guess) {
-		throw new UnsupportedOperationException();
+		while(gameInProgress && board.getAttemptsMade() < board.getNumberOfAttempts()) {
+			board.createNewGuess(board.askForNewCombination());
+			Guess currentAttempt = board.getAttempts().get(board.getAttemptsMade());
+			
+			System.out.println(currentAttempt.hint.returnHintAsString());
+			
+			if(currentAttempt.hint.returnHintAsString().equals("OOOO")) {
+				System.out.println("Correct");
+				endGame();
+			}			
+			board.increaseNumberOfAttemptsMade();
+		}
+		showGameEnded();
+		
 	}
 }
+
