@@ -8,8 +8,6 @@ import mastermind.Guess;
 import mastermind.ColorCombination;
 
 /*
- * Check for number of entered colors
- * make input uppercase
  * check for invalid colors
  */
 
@@ -18,7 +16,8 @@ public class Board {
 			
 	public ArrayList<Guess> attempts = new ArrayList<Guess>();
 	public ColorCombination correctCombination;
-
+	public String givenColorCombination = null;
+	
 	public Board(int numberOfPins, int numberOfAttempts) {
 		this.numberOfPins 	  = numberOfPins;
 		this.numberOfAttempts = numberOfAttempts;
@@ -29,16 +28,32 @@ public class Board {
 	public String askForNewCombination() {
 		System.out.println("Enter a new combination: ");
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		String givenColorCombination = null;
-
+		
 		try {
-			givenColorCombination = br.readLine();
+			String givenCombination = br.readLine().toUpperCase();
+			if(checkInputForInvalidColors(givenCombination) && checkInputLength(givenCombination)) {
+				this.givenColorCombination = givenCombination;
+			}
 		}
 		catch(IOException ioe) {
 			System.out.println("Error receiving the input");
 			System.exit(1);
 		}
 		return givenColorCombination;
+	}
+	
+	public boolean checkInputForInvalidColors(String colorCombination) {
+		char[] availableColors = {'R', 'G', 'B', 'Y'};
+		for(int i = 0; i < availableColors.length; i++) {
+			for(int j = 0; j < colorCombination.length(); j++) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	public boolean checkInputLength(String givenColorCombination) {
+		return (givenColorCombination.length() != this.numberOfPins) ? false : true;
 	}
 
 	public void generateNewCombination() {
