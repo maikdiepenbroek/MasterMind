@@ -26,34 +26,59 @@ public class Board {
 	}
 	
 	public String askForNewCombination() {
-		System.out.println("Enter a new combination: ");
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		try {
-			String givenCombination = br.readLine().toUpperCase();
-			if(checkInputForInvalidColors(givenCombination) && checkInputLength(givenCombination)) {
+			
+			boolean correctInput = false;
+			
+			while( !correctInput ) {
+				System.out.println("Enter a new combination: ");
+				String givenCombination = br.readLine().toUpperCase();
 				this.givenColorCombination = givenCombination;
+				if ( checkInputForInvalidColors(givenCombination) && checkInputLength(givenCombination) ) {
+					correctInput = true;
+				} else {
+					System.out.println("Sorry, but you can only use the following colors:");
+					System.out.println("R (Red), G (Green), B (Blue), Y (Yellow)");
+				}
 			}
 		}
 		catch(IOException ioe) {
 			System.out.println("Error receiving the input");
 			System.exit(1);
 		}
-		return givenColorCombination;
+		
+		return this.givenColorCombination;
 	}
 	
 	public boolean checkInputForInvalidColors(String colorCombination) {
+		boolean valid = true;
+		
 		char[] availableColors = {'R', 'G', 'B', 'Y'};
-		for(int i = 0; i < availableColors.length; i++) {
-			for(int j = 0; j < colorCombination.length(); j++) {
-				return false;
+		
+		for(int i = 0; i < colorCombination.length(); i++) {
+			if ( valid == true && !charInArray( colorCombination.charAt(i), availableColors ) ) {
+				valid = false;
 			}
 		}
-		return true;
+		
+		return valid;
+	}
+	
+	public boolean charInArray( char c, char[] charArray ) {
+		
+		for(int i = 0; i < charArray.length; i++) {
+			if( c == charArray[i] ) {
+				return true;
+			}
+		}
+		
+		return false;
 	}
 	
 	public boolean checkInputLength(String givenColorCombination) {
-		return (givenColorCombination.length() != this.numberOfPins) ? false : true;
+		return (givenColorCombination.length() == this.numberOfPins) ? true : false;
 	}
 
 	public void generateNewCombination() {
@@ -66,6 +91,8 @@ public class Board {
 		}
 		
 		correctCombination = new ColorCombination(secretCombination.toString());
+		
+		System.out.println("We have just entered our secret combination, try and guess!");
 	}
 
 	public void checkColorCombination(ColorCombination colorCombination) {
@@ -76,6 +103,7 @@ public class Board {
 		Guess attempt = new Guess(correctCombination.returnColorCombinationAsString(),
 								  guessedCombination);
 		attempts.add(attempt);
+		
 	}
 	
 	public void setRightColorCombination(ColorCombination newColorCombination) {

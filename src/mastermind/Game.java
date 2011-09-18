@@ -12,6 +12,7 @@ public class Game {
 	}
 	
 	public Game() {
+		showGameInfo();
 		setUpBoard();
 		gameLoop();
 	}
@@ -27,11 +28,6 @@ public class Game {
 	public void askStartNewGame() {
 		throw new UnsupportedOperationException();
 	}
-
-	public void showGameEnded() {
-		System.out.println("Game ended");
-	}
-	
 	
 	private void gameLoop() {
 		board.generateNewCombination();
@@ -50,6 +46,19 @@ public class Game {
 		}
 		showGameEnded();
 		
+	}
+	
+	public void showGameEnded() {
+		System.out.println("Game ended");
+	}
+	
+	private void showGameInfo() {
+		System.out.println(" ------------------------------------------");
+		System.out.println("|               MasterMind by             |");
+		System.out.println("|   Wouter Konecny and Maik Diepenbroek   |");
+		System.out.println("|                                         |");
+		System.out.println("|             18 September 2011           |");
+		System.out.println(" ------------------------------------------");
 	}
 }
 
