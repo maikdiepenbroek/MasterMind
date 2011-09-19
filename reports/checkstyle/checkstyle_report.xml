@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="5.0">
 <file name="/Users/wouterkonecny/Documents/Eclipse/MasterMind/src/mastermind/Board.java">
-<error line="75" column="85" severity="warning" message="Avoid inline conditionals." source="com.puppycrawl.tools.checkstyle.checks.coding.AvoidInlineConditionalsCheck"/>
 </file>
 <file name="/Users/wouterkonecny/Documents/Eclipse/MasterMind/src/mastermind/ColorCombination.java">
 </file>
