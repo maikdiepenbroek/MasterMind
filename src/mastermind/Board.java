@@ -72,7 +72,7 @@ public class Board {
 	}
 	
 	public final boolean checkInputLength(final String givenColorCombinationToCheck) {
-		return (givenColorCombinationToCheck.length() == this.numberOfPins) ? true : false;
+		return (givenColorCombinationToCheck.length() == this.numberOfPins);
 	}
 
 	public final void generateNewCombination() {
