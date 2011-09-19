@@ -17,8 +17,7 @@ public class ColorCombination {
 		
 		for( int i = 0; i < combination.size(); i++ ) {
 			tempCombination.append(combination.get(i).getColor());
-		}
-		
+		}		
 		return tempCombination.toString();
 	}
 }

@@ -9,9 +9,9 @@ public class boardTests {
 	@Test
 	public void testForCorrectColorInput() {
 		Board board = new Board(4,8);
-		String colorCombination = "RGYY";
+		String colorCombination = "RGXX";
 		
-		assertTrue(board.checkInputForInvalidColors(colorCombination));
+		assertFalse(board.checkInputForInvalidColors(colorCombination));
 		
 	}
 	

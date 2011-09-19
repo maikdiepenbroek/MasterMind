@@ -23,6 +23,7 @@ public class Game {
 
 	public final void endGame() {
 		gameInProgress = false;
+		System.out.println("The combination was: " + board.getCorrectCombination().returnColorCombinationAsString());
 	}
 
 	public final void askStartNewGame() {
@@ -44,7 +45,9 @@ public class Game {
 			}			
 			board.increaseNumberOfAttemptsMade();
 		}
+		endGame();
 		showGameEnded();
+		
 		
 	}
 	
