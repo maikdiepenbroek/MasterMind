@@ -8,18 +8,18 @@ import java.util.ArrayList;
 public class Board {
 	private int numberOfPins, numberOfAttempts, attemptsMade = 0;
 			
-	public ArrayList<Guess> attempts = new ArrayList<Guess>();
-	public ColorCombination correctCombination;
-	public String givenColorCombination = null;
-	
-	public Board(int numberOfPins, int numberOfAttempts) {
-		this.numberOfPins 	  = numberOfPins;
-		this.numberOfAttempts = numberOfAttempts;
+	private ArrayList<Guess> attempts = new ArrayList<Guess>();
+	private ColorCombination correctCombination;
+	private String givenColorCombination = null;
+
+	public Board(final int numberOfPinsToSet, final int numberOfAttemptsToSet) {
+		this.numberOfPins 	  = numberOfPinsToSet;
+		this.numberOfAttempts = numberOfAttemptsToSet;
 		 
 		System.out.println("Board has been set up.");
 	}
 	
-	public String askForNewCombination() {
+	public final String askForNewCombination() {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		try {
@@ -46,13 +46,13 @@ public class Board {
 		return this.givenColorCombination;
 	}
 	
-	public boolean checkInputForInvalidColors(String colorCombination) {
+	public final boolean checkInputForInvalidColors(final String colorCombination) {
 		boolean valid = true;
 		
 		char[] availableColors = {'R', 'G', 'B', 'Y'};
 		
 		for(int i = 0; i < colorCombination.length(); i++) {
-			if ( valid == true && !charInArray( colorCombination.charAt(i), availableColors ) ) {
+			if ( valid && !charInArray( colorCombination.charAt(i), availableColors ) ) {
 				valid = false;
 			}
 		}
@@ -60,7 +60,7 @@ public class Board {
 		return valid;
 	}
 	
-	public boolean charInArray( char c, char[] charArray ) {
+	public final boolean charInArray( final char c, final char[] charArray ) {
 		
 		for(int i = 0; i < charArray.length; i++) {
 			if( c == charArray[i] ) {
@@ -71,11 +71,11 @@ public class Board {
 		return false;
 	}
 	
-	public boolean checkInputLength(String givenColorCombination) {
-		return (givenColorCombination.length() == this.numberOfPins) ? true : false;
+	public final boolean checkInputLength(final String givenColorCombinationToCheck) {
+		return (givenColorCombinationToCheck.length() == this.numberOfPins) ? true : false;
 	}
 
-	public void generateNewCombination() {
+	public final void generateNewCombination() {
 		StringBuffer secretCombination = new StringBuffer();
 		char[] availableColors = {'R', 'G', 'B', 'Y'};
 		
@@ -89,38 +89,54 @@ public class Board {
 		System.out.println("We have just entered our secret combination, try and guess!");
 	}
 
-	public void checkColorCombination(ColorCombination colorCombination) {
+	public final void checkColorCombination(final ColorCombination colorCombination) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void createNewGuess(String guessedCombination) {
+	public final void createNewGuess(final String guessedCombination) {
 		Guess attempt = new Guess(correctCombination.returnColorCombinationAsString(),
 								  guessedCombination);
 		attempts.add(attempt);
 		
 	}
 	
-	public void setRightColorCombination(ColorCombination newColorCombination) {
+	public final void setRightColorCombination(final ColorCombination newColorCombination) {
 		correctCombination = newColorCombination;
 	}
 		
-	public int getNumberOfAttempts() {
+	public final int getNumberOfAttempts() {
 		return this.numberOfAttempts;
 	}
 	
-	public int getAttemptsMade() {
+	public final int getAttemptsMade() {
 		return this.attemptsMade;
 	}
 
-	public void increaseNumberOfAttemptsMade(){
+	public final void increaseNumberOfAttemptsMade(){
 		this.attemptsMade++;
 	}
 
-	public ArrayList<Guess> getAttempts() {
+	public final ArrayList<Guess> getAttempts() {
 		return attempts;
 	}
 
-	public void setAttempts(ArrayList<Guess> attempts) {
-		this.attempts = attempts;
-	}		
+	public final void setAttempts(final ArrayList<Guess> attemptsToSet) {
+		this.attempts = attemptsToSet;
+	}
+	
+	public final ColorCombination getCorrectCombination() {
+		return correctCombination;
+	}
+
+	public final void setCorrectCombination(final ColorCombination correctCombinationattemptsToSet) {
+		this.correctCombination = correctCombinationattemptsToSet;
+	}
+
+	public final String getGivenColorCombination() {
+		return givenColorCombination;
+	}
+
+	public final void setGivenColorCombination(final String givenColorCombinationToSet) {
+		this.givenColorCombination = givenColorCombinationToSet;
+	}
 }
