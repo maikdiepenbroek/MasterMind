@@ -1,18 +1,18 @@
 package mastermind;
 
 import java.util.ArrayList;
-import mastermind.Pin;
+
 
 public class ColorCombination {
 	private ArrayList<Pin> combination = new ArrayList<Pin>();
 
-	public ColorCombination(String guessedCombination) {
+	public ColorCombination(final String guessedCombination) {
 		for( int i = 0; i < guessedCombination.length(); i++ ) {
 			combination.add(new Pin(guessedCombination.charAt(i)));
 		}
 	}
 	
-	public String returnColorCombinationAsString() {
+	public final String returnColorCombinationAsString() {
 		StringBuffer tempCombination = new StringBuffer();
 		
 		for( int i = 0; i < combination.size(); i++ ) {

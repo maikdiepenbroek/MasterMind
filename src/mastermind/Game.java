@@ -1,11 +1,11 @@
 package mastermind;
 
-import mastermind.Board;
-
 public class Game {
 	private static Game game;
 	private Board board;
 	private boolean gameInProgress = true;
+	private final int NUMBEROFPINS = 4;
+	private final int NUMBEROFGUESSES = 8;
 	
 	public static void main( final String[] args ) {
 		game = new Game();
@@ -17,15 +17,15 @@ public class Game {
 		gameLoop();
 	}
 
-	public void setUpBoard() {
-		board = new Board(4,8);
+	public final void setUpBoard() {
+		board = new Board(NUMBEROFPINS,NUMBEROFGUESSES);
 	}
 
-	public void endGame() {
+	public final void endGame() {
 		gameInProgress = false;
 	}
 
-	public void askStartNewGame() {
+	public final void askStartNewGame() {
 		throw new UnsupportedOperationException();
 	}
 	
@@ -36,9 +36,9 @@ public class Game {
 			board.createNewGuess(board.askForNewCombination());
 			Guess currentAttempt = board.getAttempts().get(board.getAttemptsMade());
 			
-			System.out.println(currentAttempt.hint.returnHintAsString());
+			System.out.println(currentAttempt.getHint().returnHintAsString());
 			
-			if(currentAttempt.hint.returnHintAsString().equals("OOOO")) {
+			if(currentAttempt.getHint().returnHintAsString().equals("OOOO")) {
 				System.out.println("Correct");
 				endGame();
 			}			
@@ -48,7 +48,7 @@ public class Game {
 		
 	}
 	
-	public void showGameEnded() {
+	public final void showGameEnded() {
 		System.out.println("Game ended");
 	}
 	

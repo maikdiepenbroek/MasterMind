@@ -6,27 +6,27 @@ public class Hint {
 	private StringBuffer colorCombination = new StringBuffer();
 	private StringBuffer correctCombination = new StringBuffer();
 	
-	public Hint(String correctCombination, String colorCombination) {
-		this.colorCombination.append( colorCombination );
-		this.correctCombination.append( correctCombination );
+	public Hint(final String theCorrectCombination, final String theColorCombination) {
+		this.colorCombination.append( theColorCombination );
+		this.correctCombination.append( theCorrectCombination );
 	}
 
-	public void calculateHint() {
+	public final void calculateHint() {
 		checkForCorrectlyPlacedPins();
 		checkForMisplacedPins();
 		checkForUnknownPins();
 	}
 	
-	public String returnHintAsString() {
+	public final String returnHintAsString() {
 		return hint.toString();
 	}
 	
 	private void checkForCorrectlyPlacedPins() {
-		for( int i = 0; i < colorCombination.length(); i++ ) {
-			if ( correctCombination.charAt(i) == colorCombination.charAt(i) ) {
+		for( int i = 0; i < this.colorCombination.length(); i++ ) {
+			if ( correctCombination.charAt(i) == this.colorCombination.charAt(i) ) {
 				hint.append('O');
-				colorCombination.replace(i, i+1, ".");
-				correctCombination.replace(i, i+1, "*");
+				this.colorCombination.replace(i, i+1, ".");
+				this.correctCombination.replace(i, i+1, "*");
 			}
 		}
 	}

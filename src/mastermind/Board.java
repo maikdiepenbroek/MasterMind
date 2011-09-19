@@ -4,12 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import mastermind.Guess;
-import mastermind.ColorCombination;
-
-/*
- * check for invalid colors
- */
 
 public class Board {
 	private int numberOfPins, numberOfAttempts, attemptsMade = 0;
@@ -21,7 +15,7 @@ public class Board {
 	public Board(int numberOfPins, int numberOfAttempts) {
 		this.numberOfPins 	  = numberOfPins;
 		this.numberOfAttempts = numberOfAttempts;
-		
+		 
 		System.out.println("Board has been set up.");
 	}
 	
@@ -128,6 +122,5 @@ public class Board {
 
 	public void setAttempts(ArrayList<Guess> attempts) {
 		this.attempts = attempts;
-	}
-		
+	}		
 }
