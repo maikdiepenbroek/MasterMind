@@ -26,10 +26,6 @@ public class Game {
 		System.out.println("The combination was: " + board.getCorrectCombination().returnColorCombinationAsString());
 		System.out.println("Game ended");
 	}
-
-	public final void askStartNewGame() {
-		throw new UnsupportedOperationException();
-	}
 	
 	private void gameLoop() {
 		board.generateNewCombination();
